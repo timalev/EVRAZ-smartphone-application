@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 def isReleaseBuild() {
@@ -40,6 +40,7 @@ def getRepositoryPassword() {
 }
 
 afterEvaluate { project ->
+    /*
     uploadArchives {
         repositories {
             mavenDeployer {
@@ -86,7 +87,7 @@ afterEvaluate { project ->
             }
         }
     }
-
+*/
     signing {
         required { isReleaseBuild() && gradle.taskGraph.hasTask("uploadArchives") }
         sign configurations.archives
